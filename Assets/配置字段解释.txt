@@ -1,0 +1,68 @@
+
+PlistCollectionView
+PlistTableView
+当设置页面同时有TableView、CollectionView两种列表要配置时，需分别用key为PlistTableView、PlistCollectionView的字典将各自的数据包起来，以作区分
+当只有一种列表时，可不需要上面的key包起来
+
+【PlistTableView】中的数据
+backgroundColor    	列表的背景色
+hideSeparator		是否隐藏cell分割线
+separatorColor		分割线颜色
+separatorLeftSpace	分割线距离左侧空出的偏移量
+
+--groupList：
+groupKey		组的key，可用于删除指定key的分组
+
+--cellList:
+keyForCell		cell的key，可用于删除指定key的cell
+cellClass		cell的类名，会创建指定类名的cell
+cellIdentifier	cell的重用标识符
+
+icon 			cell图片名
+titleKey		主标题
+detailTextKey	副标题
+cellHeight		行高。不填默认44
+cellStyle		cell样式。只支持UITableViewCell时使用，具体样式见系统cell样式枚举
+hideAccessory 	是否隐藏cell后面的箭头
+accessoryIcon 	cell的箭头自定义图片
+
+tintColor		cell主题色
+titleColor 		cell主标题颜色
+detailTextColor cell副标题颜色
+normalBgColor 	cell普通状态下背景色
+selectBgColor	cell选中状态下背景色
+
+--cellEvent：（点击后的触发事件）
+executeClass    事件执行者类名（也就是指定某个类，到时会创建这个类，来执行其中的方法）
+注意：如果不填，则默认执行PlistTableView类中的eventExecutor，也就是其PlistTableView所在控制器）
+action			需要执行的方法名(有参数的的名称后加':')	
+attachData 		方法中带有的入参（可以是任意类型的值）
+
+targetController 需要跳转的控制器名
+usePresent		 是否使用模态跳转。yes：Present；no：push
+useTabBar		 是否使用TabBar来跳转，为no时，使用当前控制器
+targetData		 跳转时，需传入要跳转的控制器的参数（字典）
+
+注意：触发某类的事件和跳转页面都设置了的话，两个都会执行
+
+
+【PlistCollectionView】中的数据
+cellClass		cell的类名，会创建指定类名的cell（必填项。CollectionView必须先注册cell，不然会崩溃）
+cellIdentifier	cell的重用标识符（必填项。CollectionView必须先注册cell，不然会崩溃）
+
+--groupList：
+groupKey		组的key，可用于删除指定key的分组
+
+--cellList:
+keyForCell		cell的key，可用于删除指定key的cell
+
+icon 			cell图片名。支持后台添加新的图片（原本工程中不存在的图片）
+titleKey		标题的国际化key
+
+--cellEvent：（点击后的触发事件）
+这里同上面的【PlistTableView】
+
+注意：
+1.因为CollectionView都是自定义的cell，所以这里cell内容可以随意设置，然后在cell中重写'configWithData'方法，接收这些值然后进行设置就行了。
+2.CollectionView布局时自定义的，所以不满足需求时，自己新建一个布局，填入xib中PlistCollectionView中对应的布局类名中
+

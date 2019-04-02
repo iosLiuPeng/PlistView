@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cellClass</key>
+	<string>SettingsCollectionViewCell</string>
+	<key>cellIdentifier</key>
+	<string>SettingsCollectionViewCell</string>
+	<key>groupList</key>
+	<array>
+		<dict>
+			<key>groupKey</key>
+			<string></string>
+			<key>cellList</key>
+			<array>
+				<dict>
+					<key>keyForCell</key>
+					<string></string>
+					<key>icon</key>
+					<string>img_setting_review</string>
+					<key>titleKey</key>
+					<string>setting_review</string>
+					<key>cellEvent</key>
+					<dict>
+						<key>executeClass</key>
+						<string></string>
+						<key>action</key>
+						<string></string>
+						<key>attachData</key>
+						<dict/>
+						<key>targetController</key>
+						<string></string>
+						<key>usePresent</key>
+						<false/>
+						<key>useTabBar</key>
+						<false/>
+						<key>targetData</key>
+						<dict/>
+					</dict>
+				</dict>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>
